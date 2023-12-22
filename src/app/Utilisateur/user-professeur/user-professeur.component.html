@@ -1,40 +1,20 @@
 <div class="menuhead">
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg" appCouleurfond>
-    <div class="container-fluid" id="imagrelogo">
-      <a class="navbar-brand" href="#">
-        <img src="assets/image/logonote.png" alt="" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="collapse navbar-collapse d-flex justify-content-between"
-        id="navbarNav"
-      >
-        <ul class="navbar-nav col-10 justify-content-center"></ul>
-        <div class="profil d-flex justify-content-end col-2 text-white fw-bold">
-          <p>
-            professeur
-            <i class="bi bi-person-circle" style="font-size: 20px"></i>
-          </p>
-        </div>
-      </div>
-    </div>
+     <div class="Menu">
+    <ul>
+      <li><img
+        src="https://img.freepik.com/free-vector/international-student-day-banner-design_1308-122226.jpg?size=626&ext=jpg&uid=R119572586&ga=GA1.1.662083046.1696519376&semt=ais"
+        alt="" srcset="" alt=""></li>
+      <li>Espace Enseignant</li>
+    </ul>
+  </div>
   </nav>
   <!-- fin navbae -->
 
   <!-- recherche -->
   <div class="barreRecheche mt-3">
-    <div class="container d-flex justify-content-evenly">
+    <div class="container d-flex justify-content-start" style="margin-left: -10px; margin-bottom: 20px;">
       <div class="col-4">
         <!-- moadal -->
         <!-- Button trigger modal -->
@@ -202,36 +182,10 @@
 
   <!-- fin recherchebar -->
 
-  <!-- <div class="container shadow mt-5">
-    <div
-      class="d-flex justify-content-between"
-      *ngFor="let evaluatio of userEvaluation"
-    >
-      <div class="" *ngIf="evaluatio.professeur == userident">
-        <ul style="list-style: none; font-size: 18px; font-weight: 700">
-          <li class="card-title">Semestre:{{ evaluatio.semestre }}</li>
-          <li class="card-title">Type:{{ evaluatio.type }}</li>
-          <li class="card-title">Matiere:{{ evaluatio.matiere }}</li>
-          <li class="card-title">Date :{{ evaluatio.date }}</li>
-          <li class="card-title">Type :{{ evaluatio.type }}</li>
-          <li class="card-title">Classe :{{ evaluatio.niveau }}</li>
-        </ul>
 
-        <div class="mb-3 d-flex gap-5">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Attribuer Note
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <div class="card_section" *ngFor="let evaluatio of userEvaluation">
+  <div class="container_card">
+    <div class="card_section" *ngFor="let evaluatio of userEvaluation">
     <div class="card" *ngIf="evaluatio.professeur == userident">
       <div>
         <h3 class="card__title">{{ evaluatio.semestre }}</h3>
@@ -265,6 +219,8 @@
       </div>
     </div>
   </div>
+  </div>
+
 
   <!-- Modal -->
   <div

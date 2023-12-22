@@ -1,3 +1,24 @@
+.Menu {
+  background-color: #457A74;
+  width: 100%;
+}
+
+.Menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0.5em;
+  color: white;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.Menu ul li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 .modal-content{
     background-color: #CCD5AE;
     color: rgb(0, 0, 0);
@@ -80,8 +101,10 @@ tbody{
   /* ----------------------- */
     /* this card is inspired form this - https://georgefrancis.dev/ */
 
-    .card_section{
-
+    .container_card{
+       display: flex;
+       justify-content: center;
+       gap: 20px;
     }
     .card {
       --border-radius: 0.75rem;
