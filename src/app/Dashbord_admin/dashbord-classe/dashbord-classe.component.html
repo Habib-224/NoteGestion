@@ -1,0 +1,96 @@
+<app-header-dasboard></app-header-dasboard>
+<div class="Container">
+  <div class="Container_Card">
+    <div class="Container_Card mt-5">
+      <div class="Card1">
+        <div class="cardbx1">
+          <i class='bx bxs-graduation'></i>
+          <div>
+            <p class="text-center">Apprenants</p>
+            <h5 class="text-center">1</h5>
+          </div>
+        </div>
+      </div>
+      <div class="Card1">
+        <div class="cardbx">
+          <i class='bx bx-user-pin'></i>
+          <div>
+            <p class="text-center">Enseignants</p>
+            <h5 class="text-center">2</h5>
+          </div>
+        </div>
+      </div>
+      <div class="Card1">
+        <div class="cardbx1">
+          <i class='bx bx-book-bookmark'></i>
+          <div>
+            <p class="text-center">Matières</p>
+            <h5 class="text-center">1</h5>
+          </div>
+        </div>
+      </div>
+      <div class="Card1">
+        <div class="cardbx">
+          <i class='bx bxs-school'></i>
+          <div>
+            <p class="text-center">Classes</p>
+            <h5 class="text-center">2</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" id="btn1" class="btn btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    style="margin-top: 80px; margin-left: 90px; margin-bottom: 20px;">
+    Ajouter Classe
+  </button>
+
+  <table class="table" style="width: 85%; margin: auto;">
+    <thead>
+      <tr >
+        <th scope="" style="width: 30px;" class="text-white">Id</th>
+        <th scope="" style="width: 30px;" class="text-white">Niveau</th>
+        <th scope="" style="width: 30px;" class="text-white">Effectif</th>
+        <th scope="" style="width: 30px;" class="text-white">Action 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let DataClasse of usersClasse">
+        <th>{{DataClasse.id}}</th>
+        <td>{{DataClasse.niveau}}</td>
+        <td>{{DataClasse.effectif}}</td>
+        <td><button class="btn btn-danger" id="">Supprimer</button>&nbsp;&nbsp;<button class="btn btn-warning" id="">Modifier</button>&nbsp;&nbsp; <button class="btn btn-success" id="" data-bs-toggle="modal" data-bs-target="#exampleModal1">Detail</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajout Classe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" (submit)="Registerfunction($event)">
+            <div class="mb-3">
+              <label for="niveau" class="form-label">Niveau</label>
+              <input type="text" name="nom" class="form-control" placeholder="Niveau" [(ngModel)]="ClasseRegister.niveau">
+            </div>
+            <div class="mb-3">
+              <label for="effectif" class="form-label">Effectif</label>
+              <input type="text" name="effectif" class="form-control" placeholder="Effectif" [(ngModel)]="ClasseRegister.effectif">
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demi-cercle "></div>

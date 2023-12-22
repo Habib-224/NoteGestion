@@ -1,0 +1,152 @@
+#liste {
+  margin-left: 200px;
+}
+
+.modal-content {
+  background-color: #CCD5AE;
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+
+  font-weight: 700;
+}
+
+/* h3 {
+    margin-top: 5px;
+} */
+.modal-header {
+  background-color: #457A74;
+  color: white;
+  text-align: center;
+}
+
+#btn1 {
+  background-color: #457A74;
+}
+
+.titre {
+  background-color: #ffdb58;
+  color: white;
+}
+
+/** tableau*/
+.toptableau {
+  background-color: #eeeeee;
+
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.action-list {
+  list-style: none;
+}
+
+thead {
+  background-color: #457a6e;
+
+}
+
+/*  */
+.Container {
+  margin-left: 240px;
+}
+
+.Container_Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.Card1 {
+  width: 260px;
+  height: 130px;
+  background-color: white;
+  padding: 1em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* border-radius: 20px; */
+  border-left: 5px solid #457A74;
+  display: flex;
+}
+
+.Card1 i {
+  font-size: 30px;
+}
+
+.cardbx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardbx i {
+  font-size: 40px;
+  color: #457A74;
+  background-color: aliceblue;
+  padding: 0.3em;
+  margin-right: 0.5em;
+  border-radius: 10px;
+}
+
+.cardbx1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* background-color: #FFE0D3;; */
+}
+
+.cardbx1 i {
+  font-size: 40px;
+  color: #457A74;
+  background-color: #FFE0D3;
+  padding: 0.3em;
+  margin-right: 0.5em;
+  border-radius: 10px;
+}
+
+.cardbx2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #FFE0D3;; */
+}
+
+.cardbx2 i {
+  font-size: 30px;
+  color: #457A74;
+  background-color: #d7d7d7;
+  padding: 0.3em;
+  margin-right: 0.5em;
+  border-radius: 10px;
+}
+
+#btn1 {
+  background-color: #457A74;
+  color: white;
+}
+
+#btn2 {
+  background-color: #FFE0D3;
+  color: white;
+}
+
+.demi-cercle {
+  width: 80px;
+  /* Largeur du demi-cercle (ajustez selon vos besoins) */
+  height: 80px;
+  /* Hauteur du demi-cercle (la moitié de la largeur) */
+  background-color: #457a6e;
+  /* Couleur du demi-cercle */
+  border-radius: 0 0 100px 100px;
+  /* Utilisation du border-radius pour obtenir un demi-cercle */
+  position: fixed;
+  top: 0px;
+  /* Distance du bas */
+  right: 0px;
+  /* Distance de la droite */
+}

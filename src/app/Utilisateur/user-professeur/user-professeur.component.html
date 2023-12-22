@@ -1,0 +1,323 @@
+<div class="menuhead">
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg" appCouleurfond>
+    <div class="container-fluid" id="imagrelogo">
+      <a class="navbar-brand" href="#">
+        <img src="assets/image/logonote.png" alt="" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse d-flex justify-content-between"
+        id="navbarNav"
+      >
+        <ul class="navbar-nav col-10 justify-content-center"></ul>
+        <div class="profil d-flex justify-content-end col-2 text-white fw-bold">
+          <p>
+            professeur
+            <i class="bi bi-person-circle" style="font-size: 20px"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- fin navbae -->
+
+  <!-- recherche -->
+  <div class="barreRecheche mt-3">
+    <div class="container d-flex justify-content-evenly">
+      <div class="col-4">
+        <!-- moadal -->
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-outline-warning"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Programme une evaluation
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" id="headModal">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                  Programmer une evaluattion
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <form action="" (submit)="Registerfunction($event)">
+                <div class="modal-body bg-body-secondary">
+                  <div class="mb-3">
+                    <label for="semestre" class="form-label"
+                      >semestre de l'évaluation</label
+                    >
+                    <select
+                      class="form-select"
+                      id="semestre"
+                      name="semestre"
+                      [(ngModel)]="EvaluationRegister.semestre"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choisis le semestre d'évaluation
+                      </option>
+                      <option>Semestre1</option>
+                      <option>Semestre 2</option>
+                      <option>Semestre 3</option>
+                      <option>Semestre 4</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="type" class="form-label"
+                      >Type de l'évaluation</label
+                    >
+                    <select
+                      class="form-select"
+                      id="type"
+                      name="type"
+                      name="type"
+                      [(ngModel)]="EvaluationRegister.type"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choisis le type d'évaluation
+                      </option>
+                      <option>Devoir</option>
+                      <option>Examen</option>
+                      <option>Autres</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="matiere" class="form-label">Matiere</label>
+                    <select
+                      class="form-select"
+                      id="matiere"
+                      name="matiere"
+                      [(ngModel)]="EvaluationRegister.matiere"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choisissez la matière
+                      </option>
+                      <option>Html</option>
+                      <option>CSS</option>
+                      <option>Javascript</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="date" class="form-label"
+                      >Mettez la date de l'évaluation</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="date"
+                      name="date"
+                      [(ngModel)]="EvaluationRegister.date"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="etat" class="form-label">etat</label>
+                    <select
+                      class="form-select"
+                      id="etat"
+                      name="etat"
+                      [(ngModel)]="EvaluationRegister.etat"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choisissez la etat
+                      </option>
+                      <option>A Faire</option>
+                      <option>Encours</option>
+                      <option>Terminer</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="niveau" class="form-label">Classe</label>
+                    <select
+                      class="form-select"
+                      id="niveau"
+                      name="niveau"
+                      [(ngModel)]="EvaluationRegister.niveau"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choisissez la Classe
+                      </option>
+                      <option>Licence 1</option>
+                      <option>Licence 2</option>
+                      <option>Licence 3</option>
+                      <option>Master 1</option>
+                      <option>Master 2</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Fermer
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Enregistrer
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+    </div>
+  </div>
+
+  <!-- fin recherchebar -->
+
+  <!-- <div class="container shadow mt-5">
+    <div
+      class="d-flex justify-content-between"
+      *ngFor="let evaluatio of userEvaluation"
+    >
+      <div class="" *ngIf="evaluatio.professeur == userident">
+        <ul style="list-style: none; font-size: 18px; font-weight: 700">
+          <li class="card-title">Semestre:{{ evaluatio.semestre }}</li>
+          <li class="card-title">Type:{{ evaluatio.type }}</li>
+          <li class="card-title">Matiere:{{ evaluatio.matiere }}</li>
+          <li class="card-title">Date :{{ evaluatio.date }}</li>
+          <li class="card-title">Type :{{ evaluatio.type }}</li>
+          <li class="card-title">Classe :{{ evaluatio.niveau }}</li>
+        </ul>
+
+        <div class="mb-3 d-flex gap-5">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Attribuer Note
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card_section" *ngFor="let evaluatio of userEvaluation">
+    <div class="card" *ngIf="evaluatio.professeur == userident">
+      <div>
+        <h3 class="card__title">{{ evaluatio.semestre }}</h3>
+        <p class="card__content">Niveau : {{ evaluatio.niveau }}</p>
+        <p class="card__content">Matière : {{ evaluatio.matiere }}</p>
+        <p class="card__content">Date : {{ evaluatio.date }}</p>
+        <p class="card__content">Type : {{ evaluatio.type }}</p>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="Attribution(evaluatio.id)"
+        >
+          Attribuer Note
+        </button>
+        <div class="card__arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            height="15"
+            width="15"
+          >
+            <path
+              fill="#fff"
+              d="M13.4697 17.9697C13.1768 18.2626 13.1768 18.7374 13.4697 19.0303C13.7626 19.3232 14.2374 19.3232 14.5303 19.0303L20.3232 13.2374C21.0066 12.554 21.0066 11.446 20.3232 10.7626L14.5303 4.96967C14.2374 4.67678 13.7626 4.67678 13.4697 4.96967C13.1768 5.26256 13.1768 5.73744 13.4697 6.03033L18.6893 11.25H4C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75H18.6893L13.4697 17.9697Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Liste de la classe
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody  *ngFor="let Apprenants of usersdata">
+              <tr *ngIf="Apprenants.niveau==EvaluationFound.niveau && Apprenants.role==3" >
+                <th scope="row">{{Apprenants.nom}}</th>
+                <td>{{Apprenants.prenom}}</td>
+                <td>{{Apprenants.email}}</td>
+                <td><button class="btn btn-secondary">Attribuer Note</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
