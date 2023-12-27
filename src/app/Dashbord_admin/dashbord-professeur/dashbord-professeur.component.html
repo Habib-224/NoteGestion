@@ -67,7 +67,7 @@
         <td>{{professeur.email}}</td>
         <td>{{professeur.niveau}}</td>
         <td><button class="btn btn" id="btn1" (click)="desactive(professeur.id)">Desactivé</button></td>
-        <td><button class="btn btn" id="btn2" data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="Detail(professeur.id)">Voir Plus</button></td>
+        <td><button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="Detail(professeur.id)">Voir Plus</button></td>
       </tr>
     </tbody>
   </table>
@@ -111,6 +111,9 @@
               <option value="Licence 1">Licence 1</option>
               <option value="Licence 2">Licence 2</option>
               <option value="Licence 3">Licence 3</option>
+              <option value="Master 1">Master 1</option>
+              <option value="Master 2">Master 2</option>
+
             </select>
             <div class="mb-3">
               <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -125,7 +128,7 @@
   <!-- Button trigger modal -->
   <!-- Modal -->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel1">Detail</h5>
@@ -134,7 +137,7 @@
         <div class="modal-body" *ngIf="xuser!=0">
           <div class="section_detail">
             <div class="section_detail_img">
-              <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.662083046.1696519376&semt=ais">
+              <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_1280.png">
             </div>
             <div>
               <p>Nom: {{userFound.nom}}</p>
@@ -142,7 +145,8 @@
               <p>Email: {{userFound.email}}</p>
               <p>Niveau: {{userFound.niveau}}</p>
               <p>Matiere: {{userFound.Matiere[0].matiere}}</p>
-              <button class="btn btn-warning mt-3 text-center">Modifier</button>
+              <button class="btn btn mt-3 text-center" id="btn1">Modifier</button>&nbsp;
+              <button class="btn btn mt-3 text-center" id="btn1">Voir les Evaluations</button>
             </div>
           </div>
         </div>

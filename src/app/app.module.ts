@@ -11,14 +11,12 @@ import { HeaderUserComponent } from './header-user/header-user.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { UserApprenantComponent } from './Utilisateur/user-apprenant/user-apprenant.component';
 import { UserProfesseurComponent } from './Utilisateur/user-professeur/user-professeur.component';
-
 import { HeaderDasboardComponent } from './Dashbord_admin/header-dasboard/header-dasboard.component';
 import { DashbordStatistiqueComponent } from './Dashbord_admin/dashbord-statistique/dashbord-statistique.component';
 import { MenuEleveProfComponent } from './menu-eleve-prof/menu-eleve-prof.component';
 import { CouleurfondDirective } from './couleurfond.directive';
 import { MenuEleveComponent } from './menu-eleve/menu-eleve.component';
 import { ColorhoverDirective } from './colorhover.directive';
-
 
 @NgModule({
   declarations: [
@@ -31,21 +29,17 @@ import { ColorhoverDirective } from './colorhover.directive';
     LoginpageComponent,
     UserApprenantComponent,
     UserProfesseurComponent,
-
     HeaderDasboardComponent,
     DashbordStatistiqueComponent,
     MenuEleveProfComponent,
     CouleurfondDirective,
     MenuEleveComponent,
     ColorhoverDirective
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

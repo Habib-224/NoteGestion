@@ -87,10 +87,15 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:30px
+  gap:50px
 }
 
 .section_detail_img img{
-  width:250px;
-  height:250px;
+  width:350px;
+  height:350px;
+  border-radius: 20px;
+}
+
+#btn{
+  background-color: #457A74;
 }

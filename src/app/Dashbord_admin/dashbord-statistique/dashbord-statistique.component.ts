@@ -11,8 +11,8 @@ export class DashbordStatistiqueComponent implements OnInit {
   public usersdata: any;
   public tailleenseignant: any;
   public tailleApprenant: any;
-  public tailleMatiere: any; 
-  public tailleClasse: any;
+  public tailleMatiere: any;
+  public tailleClasse: any; 
 
 
   ngOnInit(): void {

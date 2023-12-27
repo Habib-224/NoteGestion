@@ -89,44 +89,71 @@ export class LoginpageComponent {
    ngOnInit(): void {
      this.storedUsers = localStorage.getItem('Schooluser');
        if (this.storedUsers) {
-         this.usersdata = JSON.parse(this.storedUsers);
+        try {
+            this.usersdata = JSON.parse(this.storedUsers);
+          // Utilisez parsedData ici
+        } catch (error) {
+          // console.error('Error parsing JSON:', error);
+        }
+
+        //  console.log(this.usersdata)
        } else {
          // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
          localStorage.setItem('Schooluser', JSON.stringify(this.Schooluser));
      }
 
      this.storeMatiere = localStorage.getItem('Matiere');
-       if (this.storedUsers) {
-         this.usersMat = JSON.parse(this.usersMat);
+     if (this.storedUsers) {
+         try {
+            this.usersMat = JSON.parse(this.usersMat);
+           // Utilisez parsedData ici
+         } catch (error) {
+          //  console.error('Error parsing JSON:', error);
+         }
        } else {
          // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
          localStorage.setItem('Matiere', JSON.stringify(this.Matiere));
      }
 
      this.storeclasse = localStorage.getItem('Classe');
-       if (this.storeclasse) {
-         this.userClasse = JSON.parse(this.userClasse);
+     if (this.storeclasse) {
+         try {
+            this.userClasse = JSON.parse(this.userClasse);
+           // Utilisez parsedData ici
+         } catch (error) {
+          //  console.error('Error parsing JSON:', error);
+         }
        } else {
          // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
          localStorage.setItem('Classe', JSON.stringify(this.Classe));
      }
 
      this.storeEvaluation = localStorage.getItem('Evaluation');
-       if (this.storeEvaluation) {
-         this.userEvaluation = JSON.parse(this.userEvaluation);
+     if (this.storeEvaluation) {
+         try {
+           this.userEvaluation = JSON.parse(this.userEvaluation);
+           // Utilisez parsedData ici
+         } catch (error) {
+          //  console.error('Error parsing JSON:', error);
+         }
        } else {
          // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
          localStorage.setItem('Evaluation', JSON.stringify(this.Evaluation));
      }
 
      this.storeNotes = localStorage.getItem('notes');
-       if (this.storeEvaluation) {
-         this.usersNotes = JSON.parse(this.usersNotes);
+     if (this.storeEvaluation) {
+         try {
+           this.usersNotes = JSON.parse(this.usersNotes);
+           // Utilisez parsedData ici
+         } catch (error) {
+          //  console.error('Error parsing JSON:', error);
+         }
+
        } else {
          // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
          localStorage.setItem('notes', JSON.stringify(this.notes));
      }
-
   }
 
 
@@ -136,13 +163,12 @@ export class LoginpageComponent {
       let email = this.formData.email
       let pass = this.formData.pass;
 
-      let datastring = localStorage.getItem('Schooluser');
-      let existingData = datastring ? JSON.parse(datastring) : [];
+      // let datastring = localStorage.getItem('Schooluser');
+      // let existingData = datastring ? JSON.parse(datastring) : [];
       // @ts-ignore
       let userFound = this.usersdata.find(usersdata => usersdata.email === this.formData.email && usersdata.password === this.formData.pass);
       console.log(userFound)
 
-      // console.log(userFound)
       this.userfoundid = userFound.id
       let useretat = this.userfoundid.role;
 
