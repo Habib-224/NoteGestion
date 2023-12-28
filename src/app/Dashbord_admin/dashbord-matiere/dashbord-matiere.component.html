@@ -58,7 +58,7 @@
       <tr *ngFor="let dataMatiere of usersMatiere">
         <td>{{dataMatiere.id}}</td>
         <td>{{dataMatiere.matiere}}</td>
-        <td><button class="btn btn" id="btn1">Supprimer</button>&nbsp;&nbsp;<button class="btn btn" id="btn1">Modifier</button>&nbsp;&nbsp; <button class="btn btn" id="btn1" data-bs-toggle="modal"data-bs-target="#exampleModal1">Detail</button></td>
+        <td><button class="btn btn" id="btn1" (click)="DeleteClasse(dataMatiere.id)">Supprimer</button>&nbsp;&nbsp;<button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="UpdateClasse(dataMatiere.id)">Modifier</button>&nbsp;&nbsp; </td>
       </tr>
     </tbody>
   </table>
@@ -79,6 +79,29 @@
             </div>
             <div class="mb-3">
               <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modifier -->
+   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier Classe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="mb-3">
+              <label for="niveau" class="form-label">Niveau</label>
+              <input type="text" name="matiere" class="form-control" placeholder="Matiere" [(ngModel)]="MatiereRegister.matiere">
+            </div>
+            <div class="mb-3">
+              <button type="submit" (click)="UpdatefunctionMatiere(UpdateMatiere1.id)" class="btn btn-primary" >Valider</button>
             </div>
           </form>
         </div>
