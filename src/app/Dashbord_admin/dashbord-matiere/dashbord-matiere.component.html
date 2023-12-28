@@ -54,8 +54,8 @@
         <th scope="" style="width: 30px;" class="text-white">Action 1</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let dataMatiere of usersMatiere">
+    <tbody *ngFor="let dataMatiere of usersMatiere">
+      <tr *ngIf="dataMatiere.etat==0">
         <td>{{dataMatiere.id}}</td>
         <td>{{dataMatiere.matiere}}</td>
         <td><button class="btn btn" id="btn1" (click)="DeleteClasse(dataMatiere.id)">Supprimer</button>&nbsp;&nbsp;<button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="UpdateClasse(dataMatiere.id)">Modifier</button>&nbsp;&nbsp; </td>
