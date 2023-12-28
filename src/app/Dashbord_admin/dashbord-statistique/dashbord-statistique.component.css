@@ -98,3 +98,9 @@
   right: 0px;
   /* Distance de la droite */
 }
+
+.table_Archiv{
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}

@@ -3,17 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashbord-statistique',
   templateUrl: './dashbord-statistique.component.html',
-  styleUrls: ['./dashbord-statistique.component.css']
+  styleUrls: ['./dashbord-statistique.component.css'],
 })
 export class DashbordStatistiqueComponent implements OnInit {
-
   public storedUsers: any;
   public usersdata: any;
   public tailleenseignant: any;
   public tailleApprenant: any;
   public tailleMatiere: any;
-  public tailleClasse: any; 
-
+  public tailleClasse: any;
+  public storeclasse: any;
+  public usersClasse: any;
 
   ngOnInit(): void {
     this.storedUsers = localStorage.getItem('Schooluser');
@@ -29,14 +29,21 @@ export class DashbordStatistiqueComponent implements OnInit {
     this.tailleMatiere = this.MatiereLength();
     this.tailleClasse = this.MatiereLength();
 
+    this.storeclasse = localStorage.getItem('Classe');
+    if (this.storeclasse) {
+      this.usersClasse = JSON.parse(this.storeclasse);
+      console.log(this.usersClasse);
+    } else {
+      // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
+      localStorage.setItem('Classe', JSON.stringify(this.usersClasse));
+    }
   }
-
 
   enseignantLength() {
     let enseignanttaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 2) {
-        enseignanttaille ++;
+        enseignanttaille++;
       }
     }
     return enseignanttaille;
@@ -44,9 +51,9 @@ export class DashbordStatistiqueComponent implements OnInit {
 
   ApprenantLength() {
     let Apprenanttaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        Apprenanttaille ++;
+        Apprenanttaille++;
       }
     }
     return Apprenanttaille;
@@ -54,9 +61,9 @@ export class DashbordStatistiqueComponent implements OnInit {
 
   MatiereLength() {
     let MatiereTaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        MatiereTaille ++;
+        MatiereTaille++;
       }
     }
     return MatiereTaille;
@@ -64,12 +71,28 @@ export class DashbordStatistiqueComponent implements OnInit {
 
   ClasseLength() {
     let Classetaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        Classetaille ++;
+        Classetaille++;
       }
     }
     return Classetaille;
   }
 
+  DesarchiveFunction(id: any) {
+    // @ts-ignore
+    let classeFound = this.usersClasse.find(
+      // @ts-ignore
+      (usersClasse) => usersClasse.id === id
+    );
+    if (classeFound) {
+      // console.log(classeFound);
+      classeFound.etat = 0;
+      this.saveDataLocal();
+    }
+  }
+
+  saveDataLocal() {
+    localStorage.setItem('Classe', JSON.stringify(this.usersClasse));
+  }
 }
