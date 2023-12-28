@@ -55,12 +55,12 @@
         <th scope="" style="width: 30px;" class="text-white">Action 1</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor ="let DataClasse of usersClasse">
+    <tbody  *ngFor ="let DataClasse of usersClasse">
+      <tr *ngIf="DataClasse.etat ===0">
         <th>{{DataClasse.id}}</th>
         <td>{{DataClasse.niveau}}</td>
         <td>{{DataClasse.effectif}}</td>
-        <td><button class="btn btn" id="btn1">Supprimer</button>&nbsp;&nbsp;<button class="btn btn" id="btn1">Modifier</button>&nbsp;&nbsp; <button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1">Detail</button></td>
+        <td><button class="btn btn" id="btn1" (click)="DeleteClasse(DataClasse.id)">Supprimer</button>&nbsp;&nbsp;<button class="btn btn" id="btn1" (click)="UpdateClasse(DataClasse.id)" data-bs-toggle="modal" data-bs-target="#exampleModal1">Modifier</button>&nbsp;&nbsp; <button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1">Detail</button></td>
       </tr>
     </tbody>
   </table>
@@ -92,5 +92,34 @@
       </div>
     </div>
   </div>
+
+  <!--Modal Modifier-->
+   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifier classe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="mb-3">
+              <label for="niveau" class="form-label">Niveau</label>
+              <input type="text" name="nom" class="form-control" placeholder="Niveau" [(ngModel)]="ClasseRegister.niveau">
+            </div>
+            <div class="mb-3">
+              <label for="effectif" class="form-label">Effectif</label>
+              <input type="text" name="effectif" class="form-control" placeholder="Effectif" [(ngModel)]="ClasseRegister.effectif">
+            </div>
+            <div class="mb-3">
+              <button type="submit" (click)="UpdatefunctionClasse(UpdateClasse1.id)" class="btn btn-primary">Valider</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <div class="demi-cercle "></div>

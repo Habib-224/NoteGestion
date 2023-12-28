@@ -167,7 +167,7 @@ export class LoginpageComponent {
       // let existingData = datastring ? JSON.parse(datastring) : [];
       // @ts-ignore
       let userFound = this.usersdata.find(usersdata => usersdata.email === this.formData.email && usersdata.password === this.formData.pass);
-      console.log(userFound)
+      console.log(userFound);
 
       this.userfoundid = userFound.id
       let useretat = this.userfoundid.role;

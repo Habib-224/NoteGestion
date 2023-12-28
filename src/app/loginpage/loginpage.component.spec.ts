@@ -59,6 +59,5 @@ describe('LoginpageComponent', () => {
     component.submitFunction(new Event('submit'));
     expect(router.navigate).toHaveBeenCalledWith(['/EspaceProf/', 1]); // Assuming ID 0 for the test user
   });
-
   // Add more test cases for other scenarios...
 });
