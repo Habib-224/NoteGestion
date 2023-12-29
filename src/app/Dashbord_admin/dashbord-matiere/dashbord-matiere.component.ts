@@ -67,8 +67,17 @@ export class DashbordMatiereComponent {
     }
   }
 
+  public UpdateMatiere: any;
   UpdatefunctionMatiere(id: any) {
-    alert(id);
+    this.UpdateMatiere = this.usersMatiere.find(
+      // @ts-ignore
+      (usersMatiere) => usersMatiere.id === id
+    );
+    if (this.UpdateMatiere) {
+      this.UpdateMatiere.matiere = this.MatiereRegister.matiere;
+
+      this.saveDataLocal();
+    }
   }
   saveDataLocal() {
     localStorage.setItem('Matiere', JSON.stringify(this.usersMatiere));

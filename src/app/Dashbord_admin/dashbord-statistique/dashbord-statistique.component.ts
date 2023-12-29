@@ -15,7 +15,7 @@ export class DashbordStatistiqueComponent implements OnInit {
   public storeclasse: any;
   public usersClasse: any;
   public storeMatiere: any;
-  public usersMatiere:any;
+  public usersMatiere: any;
 
   ngOnInit(): void {
     this.storedUsers = localStorage.getItem('Schooluser');
@@ -103,5 +103,22 @@ export class DashbordStatistiqueComponent implements OnInit {
 
   saveDataLocal() {
     localStorage.setItem('Classe', JSON.stringify(this.usersClasse));
+  }
+
+  DesarchiveFunctionMatiere(id: any) {
+    // @ts-ignore
+    let MatiereFound = this.usersMatiere.find(
+      // @ts-ignore
+      (usersMatiere) => usersMatiere.id === id
+    );
+    if (MatiereFound) {
+      // console.log(MatiereFound);
+      MatiereFound.etat = 0;
+      this.saveDataLocalMatiere();
+    }
+  }
+
+  saveDataLocalMatiere() {
+    localStorage.setItem('Matiere', JSON.stringify(this.usersMatiere));
   }
 }
