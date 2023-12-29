@@ -14,6 +14,8 @@ export class DashbordStatistiqueComponent implements OnInit {
   public tailleClasse: any;
   public storeclasse: any;
   public usersClasse: any;
+  public storeMatiere: any;
+  public usersMatiere:any;
 
   ngOnInit(): void {
     this.storedUsers = localStorage.getItem('Schooluser');
@@ -36,6 +38,13 @@ export class DashbordStatistiqueComponent implements OnInit {
     } else {
       // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
       localStorage.setItem('Classe', JSON.stringify(this.usersClasse));
+    }
+
+    this.storeMatiere = localStorage.getItem('Matiere');
+    if (this.storeMatiere) {
+      this.usersMatiere = JSON.parse(this.storeMatiere);
+    } else {
+      localStorage.setItem('Matiere', JSON.stringify(this.usersMatiere));
     }
   }
 

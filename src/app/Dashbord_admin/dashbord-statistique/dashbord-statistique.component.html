@@ -77,17 +77,15 @@
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">Niveau</th>
-            <th scope="col">Effectif</th>
+            <th scope="col">Matiere</th>
             <th scope="col" rowspan="1">Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Licence 1</td>
-            <td>Effectif</td>
-            <td><button class="btn btn" id="btn2">Désarchiver</button></td>
+        <tbody *ngFor="let Matiere of usersMatiere">
+          <tr *ngIf="Matiere.etat==1">
+            <th scope="row">{{Matiere.id}}</th>
+            <td>{{Matiere.matiere}}</td>
+            <td><button class="btn btn" id="btn2" (click)="DesarchiveFunction(Matiere.id)">Désarchiver</button></td>
           </tr>
         </tbody>
       </table>
