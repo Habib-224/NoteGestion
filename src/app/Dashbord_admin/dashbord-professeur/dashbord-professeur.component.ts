@@ -8,11 +8,9 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-dashbord-professeur',
   templateUrl: './dashbord-professeur.component.html',
-  styleUrls: ['./dashbord-professeur.component.css']
+  styleUrls: ['./dashbord-professeur.component.css'],
 })
 export class DashbordProfesseurComponent {
-
-
   public tailleenseignant: any;
   public tailleApprenant: any;
   public tailleMatiere: any;
@@ -37,7 +35,7 @@ export class DashbordProfesseurComponent {
   public detailenseignant: any;
   public userFound: any;
 
-  public xuser: any=0;
+  public xuser: any = 0;
   // Fin variable
 
   // variable utilisé pour stocker les id des users
@@ -52,12 +50,17 @@ export class DashbordProfesseurComponent {
     email: '',
     password: '',
     matiere: '',
-    niveau:''
-  }
+    niveau: '',
+  };
 
   // Constructeur qui nous permet de naviguer et d'utiliser nos services
-  constructor(private router: Router, private userService: UserserviceService) {
-  }
+  constructor(
+    private router: Router,
+    private userService: UserserviceService
+  ) {}
+  usersMatiere: any;
+  matieresEtatUn: any;
+  usersClasse: any;
 
   // la methode ngOnInit dans la quelle on recupere notre tableau d'objet
   ngOnInit(): void {
@@ -73,14 +76,40 @@ export class DashbordProfesseurComponent {
     this.tailleApprenant = this.ApprenantLength();
     this.tailleMatiere = this.MatiereLength();
     this.tailleClasse = this.MatiereLength();
+
+    this.storeMatiere = localStorage.getItem('Matiere');
+    if (this.storeMatiere) {
+      this.usersMatiere = JSON.parse(this.storeMatiere);
+      this.matieresEtatUn = this.usersMatiere.filter(
+        // @ts-ignore
+        (matiere) => matiere.etat === 0
+      );
+      // console.log( this.matieresEtatUn)
+    } else {
+      localStorage.setItem('Matiere', JSON.stringify(this.usersMatiere));
+    }
+
+    this.storeclasse = localStorage.getItem('Classe');
+    if (this.storeclasse) {
+      this.usersClasse = JSON.parse(this.storeclasse);
+      console.log(this.usersClasse);
+    } else {
+      // Si aucune donnée n'est présente dans le local storage, initialisez-le avec vos données par défaut
+      localStorage.setItem('Classe', JSON.stringify(this.usersClasse));
+    }
   }
 
   Registerfunction(event: Event) {
     event.preventDefault();
-    if (this.formDataregister.nom !== '' && this.formDataregister.prenom !== '' && this.formDataregister.email !== '' && this.formDataregister.password !== '' && this.formDataregister.matiere != "") {
-
+    if (
+      this.formDataregister.nom !== '' &&
+      this.formDataregister.prenom !== '' &&
+      this.formDataregister.email !== '' &&
+      this.formDataregister.password !== '' &&
+      this.formDataregister.matiere != ''
+    ) {
       this.userid = this.usersdata.length;
-      let nomprof = this.formDataregister.nom
+      let nomprof = this.formDataregister.nom;
       let prenomprof = this.formDataregister.prenom;
       let emailprof = this.formDataregister.email;
       let passwordprof = this.formDataregister.password;
@@ -99,61 +128,62 @@ export class DashbordProfesseurComponent {
         etat: '1',
         Matiere: [
           {
-            id:this.usersdata.length+1,
-            matiere: matiereProf
-          }
-        ]
+            id: this.usersdata.length + 1,
+            matiere: matiereProf,
+          },
+        ],
       });
       localStorage.setItem('Schooluser', JSON.stringify(this.usersdata));
       // window.location.reload();
     }
   }
 
-
-  Detail(id: any){
+  Detail(id: any) {
     this.xuser++;
     // @ts-ignore
-    this.userFound = this.usersdata.find(usersdata => usersdata.id === id);
+    this.userFound = this.usersdata.find((usersdata) => usersdata.id === id);
     if (this.userFound) {
-     return this.userFound;
+      return this.userFound;
     }
   }
-
 
   desactive(id: any) {
     let desactiveid = id;
     Swal.fire({
-      title: "Voulez vous vraiment desactivé ce compte?",
-      icon: "warning",
+      title: 'Voulez vous vraiment desactivé ce compte?',
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Oui,j'approuve!"
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: "Oui,j'approuve!",
     }).then((result) => {
       if (result.isConfirmed) {
-      let datastring = localStorage.getItem('Schooluser');
-      let existingData = datastring ? JSON.parse(datastring) : [];
-      // @ts-ignore
-      let userFound = this.usersdata.find(usersdata => usersdata.id === desactiveid);
-      if (userFound) {
-        userFound.etat = '0';
-        localStorage.setItem('Schooluser', JSON.stringify(this.usersdata));
-        // console.log(existingData)
+        let datastring = localStorage.getItem('Schooluser');
+        let existingData = datastring ? JSON.parse(datastring) : [];
+        // @ts-ignore
+        let userFound = this.usersdata.find(
+          // @ts-ignore
+          (usersdata) => usersdata.id === desactiveid
+        );
+        if (userFound) {
+          userFound.etat = '0';
+          localStorage.setItem('Schooluser', JSON.stringify(this.usersdata));
+          // console.log(existingData)
+        }
+        Swal.fire({
+          title: 'Compte desactivé!',
+          text: 'Ce Utilisateur a été desactivé .',
+          icon: 'success',
+        });
       }
-      Swal.fire({
-      title: "Compte desactivé!",
-      text: "Ce Utilisateur a été desactivé .",
-      icon: "success"
-      });
-    }
     });
   }
 
   enseignantLength() {
     let enseignanttaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 2) {
-        enseignanttaille ++;
+        enseignanttaille++;
       }
     }
     return enseignanttaille;
@@ -161,9 +191,9 @@ export class DashbordProfesseurComponent {
 
   ApprenantLength() {
     let Apprenanttaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        Apprenanttaille ++;
+        Apprenanttaille++;
       }
     }
     return Apprenanttaille;
@@ -171,9 +201,9 @@ export class DashbordProfesseurComponent {
 
   MatiereLength() {
     let MatiereTaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        MatiereTaille ++;
+        MatiereTaille++;
       }
     }
     return MatiereTaille;
@@ -181,9 +211,9 @@ export class DashbordProfesseurComponent {
 
   ClasseLength() {
     let Classetaille = 0;
-    for (let i = 0; i < this.usersdata.length; i++){
+    for (let i = 0; i < this.usersdata.length; i++) {
       if (this.usersdata[i].role == 3) {
-        Classetaille ++;
+        Classetaille++;
       }
     }
     return Classetaille;

@@ -54,9 +54,9 @@
         <th scope="col">Prenom</th>
         <th scope="col">Email</th>
         <th scope="col">Niveau</th>
+        <th scope="col">Matiere</th>
         <th scope="col">Desactivé</th>
         <th scope="col">Detail</th>
-
       </tr>
     </thead>
     <tbody *ngFor ='let professeur of usersdata'>
@@ -66,6 +66,7 @@
         <td>{{professeur.prenom}}</td>
         <td>{{professeur.email}}</td>
         <td>{{professeur.niveau}}</td>
+        <td>{{professeur.Matiere[0].matiere}}</td>
         <td><button class="btn btn" id="btn1" (click)="desactive(professeur.id)">Desactivé</button></td>
         <td><button class="btn btn" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)="Detail(professeur.id)">Voir Plus</button></td>
       </tr>
@@ -100,22 +101,17 @@
               <input type="password" name="password" class="form-control" placeholder="Password"
                 [(ngModel)]="formDataregister.password">
             </div>
+            <label for="prenom" class="form-label">Matiere</label>
             <select class="form-select"  name="matiere" [(ngModel)]="formDataregister.matiere">
-              <option selected>Open this select menu</option>
-              <option value="Html">HTML</option>
-              <option value="CSS">CSS</option>
-              <option value="Javascript">JAVASCRIPT</option>
+              <option selected>Choisir une matière</option>
+              <option *ngFor="let matiere of matieresEtatUn" [value]="matiere.matiere">{{ matiere.matiere }}</option>
             </select>
+            <label for="prenom" class="form-label">Niveau</label>
             <select class="form-select" name="niveau" [(ngModel)]="formDataregister.niveau">
               <option selected>Open this select menu</option>
-              <option value="Licence 1">Licence 1</option>
-              <option value="Licence 2">Licence 2</option>
-              <option value="Licence 3">Licence 3</option>
-              <option value="Master 1">Master 1</option>
-              <option value="Master 2">Master 2</option>
-
+              <option *ngFor="let classe of usersClasse" [value]="classe.niveau">{{classe.niveau}}</option>
             </select>
-            <div class="mb-3">
+            <div class="mb-3 mt-2">
               <button type="submit" class="btn btn-primary">Ajouter</button>
             </div>
           </form>
